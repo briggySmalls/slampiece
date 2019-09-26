@@ -1,0 +1,5 @@
+# virtual environments
+.python-version
+
+# jupyter
+.ipynb_checkpoints
