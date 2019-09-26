@@ -1,7 +1,7 @@
 """
 String comaprison logic
 """
-import Levenshtein as lvn
+from Levenshtein import ratio  # pylint: disable=no-name-in-module
 import pandas as pd
 
 
@@ -20,9 +20,8 @@ def find_suggestions(to_fix: set, to_search: set) -> pd.DataFrame:
     # - each column corresponds to a suggestion
     # - each cell is the probability of the suggestion being correct
     mat = to_fix_s.apply(
-        lambda name_to_fix: to_search_s.apply(
-            lambda name_to_search: lvn.ratio(  # pylint: disable=no-member
-                name_to_fix, name_to_search)))
+        lambda name_to_fix: to_search_s.apply(lambda name_to_search: ratio(
+            name_to_fix, name_to_search)))
     mat.rename(columns=to_search_s, index=to_fix_s, inplace=True)
     mat.index.name = "original"
 
