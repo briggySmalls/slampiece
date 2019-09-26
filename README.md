@@ -28,7 +28,7 @@ You will need to have installed the dev. dependencies (as described above) to us
 To have a look, run:
 
 ```bash
-pipenv run jupyter notebook --notebook-dir ./notebooks
+pipenv run invoke notebook
 ```
 
 ## Development

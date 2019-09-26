@@ -60,3 +60,11 @@ def clean(c):
     c.run(("jupyter nbconvert"
            " --ClearOutputPreprocessor.enabled=True"
            " --inplace {}").format(" ".join(notebooks)))
+
+
+@task()
+def notebook(c):
+    """
+    Start notebook server
+    """
+    c.run(f"jupyter notebook --notebook-dir {_NOTEBOOK_DIR}")
